@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-nov-2017 11:09:56 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="entities.Actores" table="ACTORES">
+        <id name="nacionalidad" type="java.lang.String">
+            <column name="NACIONALIDAD" />
+            <generator class="assigned" />
+        </id>
+        <property name="codigo" type="java.lang.Integer">
+            <column name="CODIGO" />
+        </property>
+        <property name="nombre" type="java.lang.String">
+            <column name="NOMBRE" />
+        </property>
+        <property name="FNacimiento" type="java.util.Date">
+            <column name="F_NACIMIENTO" />
+        </property>
+        <set name="peliculases" table="ACTORES" inverse="false" lazy="true">
+            <key>
+                <column name="NACIONALIDAD" />
+            </key>
+            <element type="string">
+                <column name="PELICULAS" />
+            </element>
+        </set>
+    </class>
+</hibernate-mapping>

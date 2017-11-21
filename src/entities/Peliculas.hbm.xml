@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-nov-2017 11:09:56 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="entities.Peliculas" table="PELICULAS">
+        <id name="codigo" type="java.lang.Integer">
+            <column name="CODIGO" />
+            <generator class="assigned" />
+        </id>
+        <property name="titulo" type="java.lang.String">
+            <column name="TITULO" />
+        </property>
+        <property name="fecha" type="java.util.Date">
+            <column name="FECHA" />
+        </property>
+        <property name="presupuesto" type="double">
+            <column name="PRESUPUESTO" />
+        </property>
+        <set name="actoreses" table="PELICULAS" inverse="false" lazy="true">
+            <key>
+                <column name="CODIGO" />
+            </key>
+            <element type="string">
+                <column name="ACTORESES" />
+            </element>
+        </set>
+    </class>
+</hibernate-mapping>
